@@ -9,6 +9,10 @@ gem 'pg'
 
 gem 'jira-ruby'
 
+gem 'ember-rails'
+gem 'ember-source', '1.0.0.rc5'
+gem 'handlebars-source', '1.0.0.rc4'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -19,6 +23,11 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'jquery-rails'
