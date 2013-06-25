@@ -9,6 +9,8 @@ gem 'pg'
 
 gem 'jira-ruby'
 
+gem 'active_attr'
+
 gem 'ember-rails'
 gem 'ember-source', '1.0.0.rc5'
 gem 'handlebars-source', '1.0.0.rc4'
@@ -23,6 +25,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'zurb-foundation'
 end
 
 group :development do

@@ -34,4 +34,7 @@ Jira::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Ember
+  config.ember.variant = :development
 end
