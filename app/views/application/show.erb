@@ -1,0 +1,51 @@
+<% for i in @issues %>
+  <div class="issue">
+    <table>
+      <thead class="<%= i.fields['assignee']['name'] if i.fields['assignee'] %>">
+        <tr>
+          <th><%= i.fields['summary'] %>
+          <% if i.fields['issuetype']['subtask'] %>
+          <th>
+            <p class="parent"><%= i.fields['parent']['key'] %></p>
+            ^<%= i.key.gsub('ICTBLG-', '') %>
+          </th>
+          <% else %>
+          <th>
+            <%= i.key.gsub('ICTBLG-', '') %>
+          </th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2">
+            <table class="subtable">
+              <tr>
+                <th>Spend</th>
+                <th>Remain</th>
+              </tr>
+              <% 6.times do %>
+                <tr>
+                  <% 2.times do %>
+                    <td>&nbsp;</td>
+                  <% end %>
+                </tr>
+              <% end %>
+            </table>
+          </td>
+          <td class="story-size">
+            <span class="points"><%= i.fields['customfield_10242'] ||= "?" %></span>//
+            <span class="hours"><%= (i.fields['progress']['total'].to_f / 60 / 60 / 8) %></span>
+          </td>
+        </tr>
+        <tr class="state">
+          <td>
+            C/O:<br />
+            <br />
+            T&V:
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<% end %>

@@ -2,6 +2,8 @@ Jira::Application.routes.draw do
 
   root to: 'application#index'
 
+  match 'show' => 'application#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

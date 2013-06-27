@@ -1,15 +1,22 @@
 <div class="row">
   <div class="large-12 columns">
-    <label>Jira Host:</label>
-    <input type="text" placeholder="http://www.jira.tld" />
-    <label>Jira Context:</label>
-    <input type="text" placeholder="jira" />
-    <label>Username:</label>
-    <input type="text" />
-    <label>Password:</label>
-    <input type="password" />
-    <label>JQL:</label>
-    <input type="text" placeholder="sprint = 17 AND project = AngryNerds"/>
-    <input type="submit" class="button" />
+    <%= form_tag controller: "application", action: "show" do |f| %>
+        <%= label_tag :host, "Jira Host:" %>
+        <%= text_field_tag :host %>
+
+        <%= label_tag :context, "Jira Context:" %>
+        <%= text_field_tag :context %>
+
+        <%= label_tag :username, "Username:" %>
+        <%= text_field_tag :username %>
+
+        <%= label_tag :password, "Password:" %>
+        <%= password_field_tag :password %>
+
+        <%= label_tag :jql, "Jql:" %>
+        <%= text_field_tag :jql %>
+
+        <%= button_tag "Go" %>
+    <% end %>
   </div>
 </div>
