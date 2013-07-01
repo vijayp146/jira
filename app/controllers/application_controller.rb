@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
   end
 
   def show
-    get_jira_client({username: @username, password: @password, site: @host, context_path: @context})
+    client = get_jira_client({username: params[:username], password: params[:password], site: params[:host], context_path: params[:context]})
+    @issues = client.Issue.jql(params[:jql])
   end
 
   rescue_from JIRA::OauthClient::UninitializedAccessTokenError do
@@ -18,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def get_jira_client(options={})
 
-    options[:use_ssl] = false
+    options[:use_ssl] = true
     options[:auth_type] = :basic
 
     @jira_client = JIRA::Client.new(options)
